@@ -24,7 +24,10 @@ numfrequency=8;
 [tx_bpsk,tx_qpsk,tx_qam,tx_qam64,tx_psk,tx_pam,tx_fsk1]=...
     pulse_shaping(bpsk,qpsk,qam,qam64,psk,pam,fsk1,sps,rolloff,span);
 
-
+%adding white gaussian noise to signals so they appear as real world
+%signals
+[rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1] =...
+    add_awgn(tx_bpsk,tx_qpsk,tx_qam,tx_qam64,tx_psk,tx_pam,tx_fsk1,snr);
 
 
 
