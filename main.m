@@ -18,9 +18,11 @@ numfeatures=8;
 numfrequency=8;
 %% 1. Generate modulation signals
 
-[bpsk, qpsk, qam16, qam64, psk8, pam4, fsk2] = ...
+[bpsk, qpsk, qam, qam64, psk, pam, fsk1] = ...
     generate_modulation(N);
-
+% doing pulse shaping using rrc filter
+[tx_bpsk,tx_qpsk,tx_qam,tx_qam64,tx_psk,tx_pam,tx_fsk1]=...
+    pulse_shaping(bpsk,qpsk,qam,qam64,psk,pam,fsk1,sps,rolloff,span);
 
 
 
