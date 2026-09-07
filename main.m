@@ -29,6 +29,9 @@ numfrequency=8;
 [rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1] =...
     add_awgn(tx_bpsk,tx_qpsk,tx_qam,tx_qam64,tx_psk,tx_pam,tx_fsk1,snr);
 
+% dividing signal into frames
+[frames]=...
+    frame_signals(rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,framelength,hopsize);
 
 
 
