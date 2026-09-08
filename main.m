@@ -11,7 +11,7 @@ span=10;
 
 framelength=1024;
 freqsep=500;
-fs=1000;
+Fs=1000;
 hopsize=512;
 nfft=1024;
 numfeatures=8;
@@ -34,8 +34,9 @@ numfrequency=8;
     frame_signals(rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,framelength,hopsize);
 
 
+% extracting both time domain and frequency domain features
 
-
+[features,freqfeat]=extract_features(numfeatures,rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,frames,numfrequency,nfft,Fs);
 
 
 
