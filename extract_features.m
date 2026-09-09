@@ -15,13 +15,10 @@
 % outputArg2 = inputArg2;
 % end
 % extracting time domain and frequency domain features
-function[features,freqfeat]=extract_features(numfeatures,rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,frames,numfrequency,nfft,Fs)
+function[features,freqfeat]=extract_features(numfeatures,rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,frames,numfrequency,nfft,Fs,numsnr)
 signals={rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1};% creating a cell array
     features=cell(length(signals),1);
-     for p= 1:length(signals)
-    rx=signals{p}; 
-    numsnr=size(rx,2);% this will give size of column
-     end
+    
 for m=1:length(features)
 features{m}=cell(numsnr,1);
     for s=1:numsnr

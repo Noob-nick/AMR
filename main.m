@@ -16,6 +16,7 @@ hopsize=512;
 nfft=1024;
 numfeatures=8;
 numfrequency=8;
+numsnr=16;
 %% 1. Generate modulation signals
 
 [bpsk, qpsk, qam, qam64, psk, pam, fsk1] = ...
@@ -36,7 +37,7 @@ numfrequency=8;
 
 % extracting both time domain and frequency domain features
 
-[features,freqfeat]=extract_features(numfeatures,rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,frames,numfrequency,nfft,Fs);
+[features,freqfeat]=extract_features(numfeatures,rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1,frames,numfrequency,nfft,Fs,numsnr);
 
 
 
