@@ -45,3 +45,4 @@ signals={rx_bpsk,rx_qpsk,rx_qam,rx_qam64,rx_psk,rx_pam,rx_fsk1};% creating a cel
 
 % labelling the frames  as it is a supervised learning method x=[timematrix freqmatrix ]
 [labels]=labels(signals,numsnr,features,freqfeat);
+

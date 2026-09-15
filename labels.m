@@ -33,6 +33,25 @@ for m=1:length(signals)
         labels{m}{s}=categorical(repmat(modulationnames(m),p,1));
     end
 end
+% combining everything into two array
+X = [];
+Y = categorical([]);
+
+for m = 1:length(combinedfeatures)
+    for s = 1:numsnr
+        X = [X; combinedfeatures{m}{s}];
+        Y = [Y; labels{m}{s}];
+    end
+end
+size(X)
+size(Y)
+
+Y = cellstr(Y);
+
+save('AMR_dataset.mat','X','Y');
+
+
+
 end
 
 
