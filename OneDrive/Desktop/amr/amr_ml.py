@@ -43,5 +43,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 # we need to standarise the dataset
 from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()
-X_train=scaler.fit_transform(X_train)
-X_test=scaler.transform(X_test)
+X_train=scaler.fit_transform(X_train)#x_train data is fit into scaler it calculates mean and standard deviation from point
+#then subtract mean from that point divided by standard deviation
+X_test=scaler.transform(X_test)# testing data is not feed into scaler as it will cause leakage
+print("X_train:", X_train.shape)
+print("X_test:", X_test.shape)
+print("y_train:", y_train.shape)
+print("y_test:", y_test.shape)
