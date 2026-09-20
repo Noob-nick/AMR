@@ -50,3 +50,35 @@ print("X_train:", X_train.shape)
 print("X_test:", X_test.shape)
 print("y_train:", y_train.shape)
 print("y_test:", y_test.shape)
+# using random forest classifier
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(
+    n_estimators=200,
+    random_state=42,
+    n_jobs=-1
+)
+
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+ # checking accuracy of model by comparing y_prediction with y_test
+from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(y_test, y_pred)
+
+print("Random Forest Accuracy:", accuracy)#97.7% accuracy
+#detailed results
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_test, y_pred))
+# Confusion matrix
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+cm = confusion_matrix(y_test, y_pred)
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot()
+plt.title("Random Forest Confusion Matrix")
+plt.show()
